@@ -50,13 +50,15 @@ public class Utility {
         try {
             // read lines from this file "./resources/blockstransactions.txt"
             //TODO implement the read  file here and insert the lines into the queue
-        
+        //create a linked list queue using java utility 
+      Queue<String> queue = new LinkedList <String>();
       File myObj = new File("blockstransactions.txt");
       Scanner readFile = new Scanner(myObj);
       while (readFile.hasNextLine()) {
         String output = readFile.nextLine();
-        System.out.println(output);
+        queue.add(output); // add the string that is read from the file to the queue
       
+     
 
         }
             catch (Exception e) {
