@@ -1,4 +1,4 @@
-package com.alquds.datastructure;
+package datastructure.blockchain;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -44,24 +44,18 @@ public class Utility {
 
     public static Queue<String> readTransactionsFile(){
 
-        //TODO Task-1 here we need to read the blockstransactions.txt file via using the scanner and inesrt the lines into a queu
-        //TODO initialize the queu
-        Queue<String> fileLines = null;
+        //Initialize the queue
+        Queue<String> fileLines= new LinkedList<String>();
         try {
-            // read lines from this file "./resources/blockstransactions.txt"
-            //TODO implement the read  file here and insert the lines into the queue
-        //create a linked list queue using java utility 
-      Queue<String> queue = new LinkedList <String>();
-      File myObj = new File("blockstransactions.txt");
-      Scanner readFile = new Scanner(myObj);
-      while (readFile.hasNextLine()) {
-        String output = readFile.nextLine();
-        queue.add(output); // add the string that is read from the file to the queue
-      
-     
-
-        }
-            catch (Exception e) {
+            File myObj = new File("./resources/blockstransactions.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String line = myReader.nextLine();
+                System.out.println(line);
+                fileLines.add(line);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
